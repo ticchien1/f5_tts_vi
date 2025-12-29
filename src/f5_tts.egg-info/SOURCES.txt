@@ -11,6 +11,7 @@ infer.sh
 prepare_metadata.py
 pyproject.toml
 ref.wav
+ref2.wav
 data/Emilia_ZH_EN_pinyin/vocab.txt
 src/f5_tts/api.py
 src/f5_tts/socket_client.py
@@ -21,6 +22,7 @@ src/f5_tts.egg-info/dependency_links.txt
 src/f5_tts.egg-info/entry_points.txt
 src/f5_tts.egg-info/requires.txt
 src/f5_tts.egg-info/top_level.txt
+src/f5_tts/__pycache__/api.cpython-310.pyc
 src/f5_tts/configs/E2TTS_Base.yaml
 src/f5_tts/configs/E2TTS_Small.yaml
 src/f5_tts/configs/F5TTS_Base.yaml
@@ -40,6 +42,8 @@ src/f5_tts/infer/infer_cli.py
 src/f5_tts/infer/infer_gradio.py
 src/f5_tts/infer/speech_edit.py
 src/f5_tts/infer/utils_infer.py
+src/f5_tts/infer/__pycache__/infer_cli.cpython-310.pyc
+src/f5_tts/infer/__pycache__/utils_infer.cpython-310.pyc
 src/f5_tts/infer/examples/vocab.txt
 src/f5_tts/infer/examples/basic/basic.toml
 src/f5_tts/infer/examples/basic/basic_ref_en.wav
@@ -74,8 +78,11 @@ src/f5_tts/train/README.md
 src/f5_tts/train/finetune_cli.py
 src/f5_tts/train/finetune_gradio.py
 src/f5_tts/train/train.py
+src/f5_tts/train/__pycache__/finetune_gradio.cpython-310.pyc
 src/f5_tts/train/datasets/prepare_csv_wavs.py
 src/f5_tts/train/datasets/prepare_emilia.py
 src/f5_tts/train/datasets/prepare_libritts.py
 src/f5_tts/train/datasets/prepare_ljspeech.py
 src/f5_tts/train/datasets/prepare_wenetspeech4tts.py
+tests/f5-tts.png
+tests/infer_cli_basic.wav

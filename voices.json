@@ -1,0 +1,110 @@
+{
+  "nu_miennam": {
+    "name": "Nữ miền Nam",
+    "description": "Giọng nữ miền Nam",
+    "ref_audio": "ref_audio/audio_nu_miennam.wav",
+    "ref_text": "Những cái lựa chọn mà bạn đưa ra á nó hoàn toàn là lựa chọn của bạn thì sẽ rất khó để bạn hoàn toàn chịu trách nhiệm cho những lựa chọn",
+    "preview_audio": "previews/nu_miennam_preview.wav",
+    "default_speed": 0.9,
+    "default_cfg_strength": 3.0,
+    "default_nfe_step": 32,
+    "default_max_chars": 180,
+    "default_pause_duration": 0.2
+  },
+  "kechuyen": {
+    "name": "Kể chuyện",
+    "description": "Giọng kể chuyện",
+    "ref_audio": "ref_audio/audio3.wav",
+    "ref_text": "Mày tính chơi với tao đúng không ngon thì đánh thử coi",
+    "preview_audio": "previews/6935b223ac9ae405b3132fe8_1766302571959_fa9beff8.wav",
+    "default_speed": 0.9,
+    "default_cfg_strength": 3.0,
+    "default_nfe_step": 32,
+    "default_max_chars": 180,
+    "default_pause_duration": 0.2
+  },
+  "soccamlemlim": {
+    "name": "Sóc cam lém lỉnh",
+    "description": "Giọng sóc cam lém lỉnh",
+    "ref_audio": "ref_audio/voice_garen.wav",
+    "ref_text": "Kèo này các bạn có thể cầm chinh phục hay là tăng tốc pha đều được",
+    "preview_audio": "previews/soccamlemlim_preview.wav",
+    "default_speed": 0.9,
+    "default_cfg_strength": 3.0,
+    "default_nfe_step": 32,
+    "default_max_chars": 180,
+    "default_pause_duration": 0.2
+  },
+  "gau_nau_tram_mac": {
+    "name": "Gấu nâu trầm mặc",
+    "description": "Giọng gấu nâu trầm mặc",
+    "ref_audio": "ref_audio/update_700000_ref.wav",
+    "ref_text": "Mẹ đã mất quốc tuấn rồi bây giờ mà mẹ mất luôn bảo quỳnh nữa thì mẹ không biết là mẹ sẽ sống như thế nào đây",
+    "preview_audio": "previews/gau_nau_tram_mac_preview.wav",
+    "default_speed": 0.9,
+    "default_cfg_strength": 3.0,
+    "default_nfe_step": 32,
+    "default_max_chars": 180,
+    "default_pause_duration": 0.2
+  },
+  "ho_dong_luc": {
+    "name": "Hổ động lực",
+    "description": "Giọng hổ động lực",
+    "ref_audio": "ref_audio/e305c9aa21563f7fc5cb2a21d59abd3b.wav",
+    "ref_text": "Đầu với lưng ta đều bị gãy hết rồi nên ta phải vừa bay lên vừa ráp đầu lại",
+    "preview_audio": "previews/6935b223ac9ae405b3132fe8_1766128850313_ead83ffe.wav",
+    "default_speed": 1,
+    "default_cfg_strength": 3.5,
+    "default_nfe_step": 32,
+    "default_max_chars": 120,
+    "default_pause_duration": 0.3
+  },
+  "meo_tim_mong_mo": {
+    "name": "Mèo tím mộng mơ",
+    "description": "Giọng mèo tím mộng mơ",
+    "ref_audio": "ref_audio/update_630000_gen.wav",
+    "ref_text": "Tao càng nhiều càng tốt nói chung là em dô, tao sẽ không qua tâm đến mày đâu mày muốn cái gì cũng được á miễn là tao là tao nhưng mà khi mà càng lớn",
+    "preview_audio": "previews/meo_tim_mong_mong_preview.wav",
+    "default_speed": 1,
+    "default_cfg_strength": 2.5,
+    "default_nfe_step": 32,
+    "default_max_chars": 180,
+    "default_pause_duration": 0
+  },
+  "rong_xanh_uy_vu": {
+    "name": "Rồng xanh uy vũ",
+    "description": "Giọng rồng xanh uy vũ",
+    "ref_audio": "ref_audio/audio_quang_cao.wav",
+    "ref_text": "Hay bạn bè đồng trang lứa từ lựa chọn làm hết sức hay chơi hết mình",
+    "preview_audio": "previews/rong_xanh_uy_vu_preview.wav",
+    "default_speed": 1,
+    "default_cfg_strength": 2.5,
+    "default_nfe_step": 32,
+    "default_max_chars": 120,
+    "default_pause_duration": 0
+  },
+  "nai_vang_nhe_nhang": {
+    "name": "Nai vàng nhẹ nhàng",
+    "description": "Giọng nai vàng nhẹ nhàng",
+    "ref_audio": "ref_audio/audio_anle.wav",
+    "ref_text": "Toan tính này cho rằng những thư mang đến lợi ích đồng nghĩa với những thư tốt đẹp",
+    "preview_audio": "previews/nai_vang_nhe_nhang_preview.wav",
+    "default_speed": 1,
+    "default_cfg_strength": 2.5,
+    "default_nfe_step": 32,
+    "default_max_chars": 120,
+    "default_pause_duration": 0
+  },
+  "ong_ti_hon": {
+    "name": "Ong tí hon",
+    "description": "Giọng trẻ em",
+    "ref_audio": "ref_audio/update_590000_ref.wav",
+    "ref_text": "Con gái chú chắc chắn cũng hiền và dễ thương ý như chú luôn, chú có biết làm đất sét có nhiều tượng to thiệt to lắm đó chú bạn con cứ khoe là đến đó dui lắm còn con thì chưa được đi chơi",
+    "preview_audio": "previews/nai_vang_nhe_nhang_preview.wav",
+    "default_speed": 1,
+    "default_cfg_strength": 2.5,
+    "default_nfe_step": 32,
+    "default_max_chars": 120,
+    "default_pause_duration": 0
+  }
+}

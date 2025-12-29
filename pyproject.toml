@@ -20,6 +20,7 @@ dependencies = [
     "click",
     "datasets",
     "ema_pytorch>=0.5.2",
+    "fastapi>=0.104.0",
     "gradio>=3.45.2",
     "hydra-core>=1.3.0",
     "jieba",
@@ -28,6 +29,7 @@ dependencies = [
     "numpy<=1.26.4",
     "pydub",
     "pypinyin",
+    "python-multipart>=0.0.6",
     "safetensors",
     "soundfile",
     "tomli",
@@ -37,6 +39,7 @@ dependencies = [
     "tqdm>=4.65.0",
     "transformers",
     "transformers_stream_generator",
+    "uvicorn>=0.24.0",
     "vocos",
     "wandb",
     "x_transformers>=1.31.14",
@@ -60,3 +63,4 @@ Homepage = "https://github.com/SWivid/F5-TTS"
 "f5-tts_infer-gradio" = "f5_tts.infer.infer_gradio:main"
 "f5-tts_finetune-cli" = "f5_tts.train.finetune_cli:main"
 "f5-tts_finetune-gradio" = "f5_tts.train.finetune_gradio:main"
+"f5-tts_api-server" = "f5_tts.api_server:main"

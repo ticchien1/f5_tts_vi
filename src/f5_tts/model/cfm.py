@@ -190,9 +190,12 @@ class CFM(nn.Module):
             y0 = (1 - t_start) * y0 + t_start * test_cond
             steps = int(steps * (1 - t_start))
 
-        t = torch.linspace(t_start, 1, steps + 1, device=self.device, dtype=step_cond.dtype)
-        if sway_sampling_coef is not None:
+        # Use float64 for timesteps to avoid precision issues with high nfe_step
+        t = torch.linspace(t_start, 1, steps + 1, device=self.device, dtype=torch.float64)
+        if sway_sampling_coef is not None and sway_sampling_coef != 0:
             t = t + sway_sampling_coef * (torch.cos(torch.pi / 2 * t) - 1 + t)
+        # Ensure t is strictly increasing (fix potential floating point issues)
+        t = t.to(step_cond.dtype)
 
         trajectory = odeint(fn, y0, t, **self.odeint_kwargs)
         self.transformer.clear_cache()

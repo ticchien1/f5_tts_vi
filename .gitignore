@@ -1,5 +1,5 @@
 /data/your_dataset/
-/data/your_training_dataset/
-/data/your_training_dataset_non_preprocessed/
+/F5-TTS-Vietnamese-Test
+/samples/
 /ckpts/your_training_dataset/
 /preprocess

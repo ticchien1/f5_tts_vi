@@ -138,6 +138,12 @@ parser.add_argument(
     help=f"Duration of cross-fade between audio segments in seconds, default {cross_fade_duration}",
 )
 parser.add_argument(
+    "--pause_duration",
+    type=float,
+    default=0.0,
+    help="Duration of silence/pause between audio segments in seconds, default 0.0",
+)
+parser.add_argument(
     "--nfe_step",
     type=int,
     help=f"The number of function evaluation (denoising steps), default {nfe_step}",
@@ -161,6 +167,11 @@ parser.add_argument(
     "--fix_duration",
     type=float,
     help=f"Fix the total duration (ref and gen audios) in seconds, default {fix_duration}",
+)
+parser.add_argument(
+    "--max_chars",
+    type=int,
+    help="Maximum characters per chunk for text splitting. If not set, auto-calculated based on ref_audio length.",
 )
 args = parser.parse_args()
 
@@ -197,11 +208,13 @@ load_vocoder_from_local = args.load_vocoder_from_local or config.get("load_vocod
 vocoder_name = args.vocoder_name or config.get("vocoder_name", mel_spec_type)
 target_rms = args.target_rms or config.get("target_rms", target_rms)
 cross_fade_duration = args.cross_fade_duration or config.get("cross_fade_duration", cross_fade_duration)
+pause_duration = args.pause_duration or config.get("pause_duration", 0.0)
 nfe_step = args.nfe_step or config.get("nfe_step", nfe_step)
 cfg_strength = args.cfg_strength or config.get("cfg_strength", cfg_strength)
 sway_sampling_coef = args.sway_sampling_coef or config.get("sway_sampling_coef", sway_sampling_coef)
 speed = args.speed or config.get("speed", speed)
 fix_duration = args.fix_duration or config.get("fix_duration", fix_duration)
+max_chars = args.max_chars or config.get("max_chars", None)
 
 
 # patches for pip pkg user
@@ -325,6 +338,8 @@ def main():
             sway_sampling_coef=sway_sampling_coef,
             speed=speed,
             fix_duration=fix_duration,
+            max_chars=max_chars,
+            pause_duration=pause_duration,
         )
         generated_audio_segments.append(audio_segment)
 

@@ -380,10 +380,17 @@ def infer_process(
     speed=speed,
     fix_duration=fix_duration,
     device=device,
+    max_chars=None,
+    pause_duration=0.0,
 ):
     # Split the input text into batches
     audio, sr = torchaudio.load(ref_audio)
-    max_chars = int(len(ref_text.encode("utf-8")) / (audio.shape[-1] / sr) * (22 - audio.shape[-1] / sr))
+    if max_chars is None:
+        # Auto-calculate based on ref_audio length
+        max_chars = int(len(ref_text.encode("utf-8")) / (audio.shape[-1] / sr) * (22 - audio.shape[-1] / sr))
+        # Limit max_chars to reasonable range for better audio quality
+        max_chars = max(50, min(max_chars, 200))
+    print(f"max_chars: {max_chars}")
     gen_text_batches = chunk_text(gen_text, max_chars=max_chars)
     for i, gen_text in enumerate(gen_text_batches):
         print(f"gen_text {i}", gen_text)
@@ -407,6 +414,7 @@ def infer_process(
             speed=speed,
             fix_duration=fix_duration,
             device=device,
+            pause_duration=pause_duration,
         )
     )
 
@@ -432,6 +440,7 @@ def infer_batch_process(
     device=None,
     streaming=False,
     chunk_size=2048,
+    pause_duration=0.0,
 ):
     audio, sr = ref_audio
     if audio.shape[0] > 1:
@@ -517,11 +526,40 @@ def infer_batch_process(
                     spectrograms.append(generated_mel_spec)
 
         if generated_waves:
-            if cross_fade_duration <= 0:
+            # Calculate pause samples if specified
+            pause_samples = int(pause_duration * target_sample_rate) if pause_duration > 0 else 0
+            silence = np.zeros(pause_samples) if pause_samples > 0 else None
+            
+            # Calculate fade samples for smooth transitions
+            fade_samples = int(cross_fade_duration * target_sample_rate) if cross_fade_duration > 0 else 0
+            
+            if cross_fade_duration <= 0 and pause_duration <= 0:
                 # Simply concatenate
                 final_wave = np.concatenate(generated_waves)
+            elif pause_duration > 0:
+                # When pause is specified, use separate fade-out/fade-in (no overlap)
+                # This prevents audio bleeding across the pause
+                final_wave = generated_waves[0]
+                for i in range(1, len(generated_waves)):
+                    prev_wave = final_wave
+                    next_wave = generated_waves[i]
+                    
+                    # Apply fade-out to end of prev_wave (without cutting)
+                    if fade_samples > 0 and len(prev_wave) >= fade_samples:
+                        fade_out = np.linspace(1, 0, fade_samples)
+                        prev_wave = prev_wave.copy()
+                        prev_wave[-fade_samples:] = prev_wave[-fade_samples:] * fade_out
+                    
+                    # Apply fade-in to start of next_wave (without cutting)
+                    if fade_samples > 0 and len(next_wave) >= fade_samples:
+                        fade_in = np.linspace(0, 1, fade_samples)
+                        next_wave = next_wave.copy()
+                        next_wave[:fade_samples] = next_wave[:fade_samples] * fade_in
+                    
+                    # Concatenate with pause in between
+                    final_wave = np.concatenate([prev_wave, silence, next_wave])
             else:
-                # Combine all generated waves with cross-fading
+                # Cross-fade without pause (original behavior)
                 final_wave = generated_waves[0]
                 for i in range(1, len(generated_waves)):
                     prev_wave = final_wave
@@ -532,7 +570,6 @@ def infer_batch_process(
                     cross_fade_samples = min(cross_fade_samples, len(prev_wave), len(next_wave))
 
                     if cross_fade_samples <= 0:
-                        # No overlap possible, concatenate
                         final_wave = np.concatenate([prev_wave, next_wave])
                         continue
 
