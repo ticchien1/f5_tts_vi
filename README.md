@@ -6,7 +6,7 @@ Mô hình Text-to-Speech tiếng Việt dựa trên kiến trúc [F5-TTS](https:
 
 Dưới đây là mẫu audio được tạo bởi mô hình:
 
-https://github.com/user-attachments/assets/6935b223ac9ae405b3132fe8_1766128850313_ead83ffe.wav
+https://github.com/ticchien1/assets/6935b223ac9ae405b3132fe8_1766128850313_ead83ffe.wav
 
 > Nếu trình duyệt không phát được, bạn có thể tải file tại [`previews/6935b223ac9ae405b3132fe8_1766128850313_ead83ffe.wav`](previews/6935b223ac9ae405b3132fe8_1766128850313_ead83ffe.wav).
 
